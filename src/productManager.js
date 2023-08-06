@@ -87,17 +87,17 @@ export default class ProductManager {
 }
 
 
-async function generator() {
-    const productManager = new ProductManager("./path/productos.json");
+//async function generator() {
+  //  const productManager = new ProductManager("./path/productos.json");
 
 
     //const listado = await productManager.getProduct()
 
-    const soloProducto = await productManager.getProductById(4)
+    //const soloProducto = await productManager.getProductById(4)
 
 
 
-    console.log(soloProducto)
-}
+    //console.log(soloProducto)
+//}
 
-generator()
+//generator()
