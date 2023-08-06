@@ -1,10 +1,11 @@
 import express from 'express';
 import ProductManager from './productManager.js';
-const manager = new ProductManager ("./path/productos.js")
+const manager = new ProductManager ("./path/productos.json")
+
 const app = express();
 const PORT = 8080;
 
-app.get("/products", async(req,res) => {
+app.get("/productos", async(req,res) => {
     const {limite} = req.query
     const products = await manager.getProduct()
     if (limite) {
@@ -12,15 +13,15 @@ app.get("/products", async(req,res) => {
         res.json({status:"Success", limiteProductos})
     }else{
         res.json({status:"Success", products})
-    }
+    } 
 }) 
 
-app.get("/products/:pid", async(req,res) => {
+app.get("/productos/:pid", async(req,res) => {
     const {pid} = req.params
     const productos = await manager.getProduct()
-    const encontrarProductos = productos.find(element => element.id === parseInts(pid))
+    const encontrarProductos = productos.find(element => element.id === parseInt(pid))
     console.log(encontrarProductos)
-    res.send({status:"Success",encontrarProducts})
+    res.send({status:"Success", encontrarProductos})
 
 }) 
 
